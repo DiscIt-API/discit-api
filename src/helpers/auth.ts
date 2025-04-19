@@ -1,6 +1,6 @@
 import { Config, CustomError } from "@helpers";
 
-export const assertRequestIsAuthorized = (authorization: string | undefined) => {
+export const assertIsRequestAuthorized = (authorization: string | undefined) => {
 	const token = authorization?.split("Bearer ")?.[1];
 	if (!token)
 		throw new CustomError(
@@ -9,4 +9,5 @@ export const assertRequestIsAuthorized = (authorization: string | undefined) => 
 		);
 	if (token !== Config.API_KEY)
 		throw new CustomError("Unauthorized - Bearer token does not match API_KEY value", 401);
+	return true;
 };

@@ -1,7 +1,7 @@
 import { discSchema } from "discit-types";
 
 import {
-	assertRequestIsAuthorized,
+	assertIsRequestAuthorized,
 	authHeaderSchema,
 	discQuerySchema,
 	resMessageSchema
@@ -99,7 +99,7 @@ export const initDiscRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const body = c.req.valid("json");
 			const discs = await Disc.insertDiscs(body);
 			return c.json(discs, 201);
@@ -131,7 +131,7 @@ export const initDiscRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			await Disc.deleteAllDiscs();
 			return c.json({ message: "All discs deleted successfully" }, 200);
 		}

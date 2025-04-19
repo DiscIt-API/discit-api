@@ -1,6 +1,6 @@
 import { bagSchema } from "discit-types";
 
-import { assertRequestIsAuthorized, authHeaderSchema, resMessageSchema } from "@helpers";
+import { assertIsRequestAuthorized, authHeaderSchema, resMessageSchema } from "@helpers";
 import { type OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { Bag } from "@models";
 
@@ -31,7 +31,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { user_id } = c.req.valid("query");
 			const bags = await Bag.getBags(user_id);
 			return c.json(bags, 200);
@@ -68,7 +68,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { id } = c.req.valid("param");
 			const bag = await Bag.assertBagExists(id);
 			return c.json(bag, 200);
@@ -112,7 +112,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { user_id, name } = c.req.valid("json");
 			const bag = await Bag.createBag(user_id, name);
 			return c.json(bag, 201);
@@ -160,7 +160,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { id, disc_id } = c.req.valid("json");
 			const bag = await Bag.addDiscToBag(id, disc_id);
 			return c.json(bag, 200);
@@ -208,7 +208,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { id, disc_id } = c.req.valid("json");
 			const bag = await Bag.removeDiscFromBag(id, disc_id);
 			return c.json(bag, 200);
@@ -256,7 +256,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { id, name } = c.req.valid("json");
 			const bag = await Bag.updateBagName(id, name);
 			return c.json(bag, 200);
@@ -293,7 +293,7 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		}),
 		async c => {
 			const { authorization } = c.req.valid("header");
-			assertRequestIsAuthorized(authorization);
+			assertIsRequestAuthorized(authorization);
 			const { id } = c.req.valid("param");
 			const bag = await Bag.deleteBag(id);
 			return c.json(bag, 200);
