@@ -5,7 +5,7 @@
   "author": "Chris Leveille <cdleveille@gmail.com",
   "license": "MIT",
   "type": "module",
-  "module": "./src/index.ts",
+  "module": "src/index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cdleveille/discit-api.git"
@@ -16,20 +16,20 @@
   "homepage": "https://github.com/cdleveille/discit-api#readme",
   "scripts": {
     "compose": "docker compose -f \"./.discit-dev-container/docker-compose.yml\" up -d --build",
-    "lint": "eslint . && prettier --check .",
-    "fix": "eslint --fix . && prettier --write .",
+    "prepare": "lefthook install",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check .",
     "deploy": "flyctl deploy --remote-only --detach --no-cache --config fly.toml",
-    "dev": "bun --watch ./src/index.ts",
-    "start": "bun ./src/index.ts"
+    "compile": "bun build --compile --minify --sourcemap src/server/index.ts --outfile main",
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts"
   },
   "devDependencies": {
-    "@eslint/js": "^9.13.0",
-    "@types/bun": "^1.1.13",
-    "@types/eslint__js": "^8.42.3",
-    "eslint": "^9.13.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3",
-    "typescript-eslint": "^8.11.0"
+    "@biomejs/biome": "^1.9.4",
+    "@evilmartians/lefthook": "^1.11.10",
+    "@types/bun": "latest",
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.16.4",

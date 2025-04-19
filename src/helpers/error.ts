@@ -15,7 +15,9 @@ export class CustomError extends Error {
 export const initErrorHandling = (app: OpenAPIHono) => {
 	app.notFound(c => c.json({ message: "Not Found" }, 404));
 	app.onError((e, c) => {
-		const errorStatus = ("status" in e && typeof e.status === "number" ? e.status : 500) as StatusCode;
+		const errorStatus = (
+			"status" in e && typeof e.status === "number" ? e.status : 500
+		) as StatusCode;
 		return c.json({ message: e.message || "Internal Server Error" }, errorStatus);
 	});
 };

@@ -1,7 +1,7 @@
 import { bagSchema } from "discit-types";
 
 import { assertRequestIsAuthorized, authHeaderSchema, resMessageSchema } from "@helpers";
-import { createRoute, type OpenAPIHono, z } from "@hono/zod-openapi";
+import { type OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { Bag } from "@models";
 
 export const initBagRoutes = (app: OpenAPIHono) => {
@@ -83,7 +83,11 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 			request: {
 				headers: authHeaderSchema,
 				body: {
-					content: { "application/json": { schema: z.object({ user_id: z.string(), name: z.string() }) } },
+					content: {
+						"application/json": {
+							schema: z.object({ user_id: z.string(), name: z.string() })
+						}
+					},
 					required: true
 				}
 			},
@@ -123,7 +127,11 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 			request: {
 				headers: authHeaderSchema,
 				body: {
-					content: { "application/json": { schema: z.object({ id: z.string(), disc_id: z.string() }) } },
+					content: {
+						"application/json": {
+							schema: z.object({ id: z.string(), disc_id: z.string() })
+						}
+					},
 					required: true
 				}
 			},
@@ -167,7 +175,11 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 			request: {
 				headers: authHeaderSchema,
 				body: {
-					content: { "application/json": { schema: z.object({ id: z.string(), disc_id: z.string() }) } },
+					content: {
+						"application/json": {
+							schema: z.object({ id: z.string(), disc_id: z.string() })
+						}
+					},
 					required: true
 				}
 			},
@@ -211,7 +223,11 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 			request: {
 				headers: authHeaderSchema,
 				body: {
-					content: { "application/json": { schema: z.object({ id: z.string(), name: z.string() }) } },
+					content: {
+						"application/json": {
+							schema: z.object({ id: z.string(), name: z.string() })
+						}
+					},
 					required: true
 				}
 			},

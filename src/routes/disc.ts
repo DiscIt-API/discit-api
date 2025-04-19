@@ -1,7 +1,12 @@
 import { discSchema } from "discit-types";
 
-import { assertRequestIsAuthorized, authHeaderSchema, discQuerySchema, resMessageSchema } from "@helpers";
-import { createRoute, type OpenAPIHono, z } from "@hono/zod-openapi";
+import {
+	assertRequestIsAuthorized,
+	authHeaderSchema,
+	discQuerySchema,
+	resMessageSchema
+} from "@helpers";
+import { type OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { Disc } from "@models";
 
 export const initDiscRoutes = (app: OpenAPIHono) => {

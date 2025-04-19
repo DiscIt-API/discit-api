@@ -2,11 +2,11 @@
   "editor.detectIndentation": false,
   "editor.tabSize": 4,
   "editor.insertSpaces": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.insertFinalNewline": true,
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.sortImports": "explicit"
-  },
-  "eslint.validate": ["javascript", "typescript"]
+    "source.organizeImports.biome": "explicit"
+  }
 }

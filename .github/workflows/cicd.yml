@@ -7,14 +7,13 @@ on:
     branches: ["*"]
 
 jobs:
-  lint:
-    name: install, lint
+  cicd:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
-      - run: bun i --ignore-scripts --frozen-lockfile
-      - run: bun lint
+      - run: bun install --ignore-scripts --frozen-lockfile
+      - run: bun run biome ci .
+      - run: bun run compile

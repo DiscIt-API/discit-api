@@ -1,7 +1,7 @@
 import type * as types from "discit-types";
 
-import { discQuerySchema } from "@helpers";
-import { z } from "@hono/zod-openapi";
+import type { discQuerySchema } from "@helpers";
+import type { z } from "@hono/zod-openapi";
 
 export type TBase = {
 	created_at: Date;
