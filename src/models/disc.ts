@@ -119,7 +119,10 @@ const insertDiscs = async (discs: TDisc[]) => {
 	return allDiscs;
 };
 
-const deleteAllDiscs = () => DiscModel.deleteMany();
+const deleteAllDiscs = async () => {
+	await DiscModel.deleteMany();
+	discCache.discs = [];
+};
 
 export const Disc = {
 	getDiscData,

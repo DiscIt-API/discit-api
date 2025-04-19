@@ -21,7 +21,7 @@
     "format": "biome format --write .",
     "check": "biome check .",
     "deploy": "flyctl deploy --remote-only --detach --no-cache --config fly.toml",
-    "compile": "bun build --compile --minify --sourcemap src/server/index.ts --outfile main",
+    "compile": "bun build --compile --minify --sourcemap src/index.ts --outfile main",
     "dev": "bun --watch src/index.ts",
     "start": "bun src/index.ts"
   },
