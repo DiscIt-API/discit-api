@@ -1,6 +1,7 @@
 **/*.DS_Store
 **/*.env*
 **/*.git*
+**/.discit-dev-container
 **/.vscode
 **/node_modules
 .dockerignore
