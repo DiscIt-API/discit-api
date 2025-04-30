@@ -225,7 +225,11 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 				body: {
 					content: {
 						"application/json": {
-							schema: z.object({ id: z.string(), name: z.string() })
+							schema: z.object({
+								id: z.string(),
+								name: z.string(),
+								user_id: z.optional(z.string())
+							})
 						}
 					},
 					required: true
@@ -257,8 +261,8 @@ export const initBagRoutes = (app: OpenAPIHono) => {
 		async c => {
 			const { authorization } = c.req.valid("header");
 			assertIsRequestAuthorized(authorization);
-			const { id, name } = c.req.valid("json");
-			const bag = await Bag.updateBagName(id, name);
+			const { id, name, user_id } = c.req.valid("json");
+			const bag = await Bag.updateBagName(id, name, user_id);
 			return c.json(bag, 200);
 		}
 	);

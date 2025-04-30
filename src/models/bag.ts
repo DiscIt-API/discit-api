@@ -69,8 +69,12 @@ const removeDiscFromBag = async (id: string, disc_id: string) => {
 	return bag;
 };
 
-const updateBagName = async (id: string, name: string) => {
+const updateBagName = async (id: string, name: string, user_id?: string) => {
 	const bag = await assertBagExists(id);
+	if (user_id) {
+		const existingBag = await BagModel.findOne({ user_id, name });
+		if (existingBag) throw new CustomError(`You already have a bag named '${name}'`, 400);
+	}
 	bag.name = name;
 	await BagModel.updateOne({ id }, bag);
 	return bag;
