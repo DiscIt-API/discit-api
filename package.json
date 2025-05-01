@@ -8,12 +8,12 @@
   "module": "src/index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cdleveille/discit-api.git"
+    "url": "git+https://github.com/DiscIt-API/discit-api.git"
   },
   "bugs": {
-    "url": "https://github.com/cdleveille/discit-api/issues"
+    "url": "https://github.com/DiscIt-API/discit-api/issues"
   },
-  "homepage": "https://github.com/cdleveille/discit-api#readme",
+  "homepage": "https://github.com/DiscIt-API/discit-api#readme",
   "scripts": {
     "compose": "docker compose -f \"./.discit-dev-container/docker-compose.yml\" up -d --build",
     "prepare": "lefthook install",
