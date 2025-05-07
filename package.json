@@ -16,7 +16,7 @@
   "homepage": "https://github.com/DiscIt-API/discit-api#readme",
   "scripts": {
     "compose": "docker compose -f \"./.discit-dev-container/docker-compose.yml\" up -d --build",
-    "prepare": "lefthook install",
+    "prepare": "bun run lefthook.ts",
     "lint": "biome lint .",
     "format": "biome format --write .",
     "check": "biome check .",
