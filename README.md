@@ -19,7 +19,7 @@ Check it out live on fly.io! [discit-api.fly.dev/disc](https://discit-api.fly.de
 -   All discs: [`/disc`](https://discit-api.fly.dev/disc)
 -   By one field: [`/disc?stability=very-overstable`](https://discit-api.fly.dev/disc?stability=very-overstable)
 -   By multiple fields: [`/disc?brand=innova&category=control-driver`](https://discit-api.fly.dev/disc?brand=innova&category=control-driver)
--   By id: [`/disc/dc3616c5-c9f2-55e3-9563-83a00d0805cb`](https://discit-api.fly.dev/disc/dc3616c5-c9f2-55e3-9563-83a00d0805cb)
+-   By id: [`/disc/b61c0b30-f06b-5f66-a567-78287b003869`](https://discit-api.fly.dev/disc/b61c0b30-f06b-5f66-a567-78287b003869)
 
 Refer to the **Fields** section below for all possible query string parameters, or check out the [Scalar API documentation](https://discit-api.fly.dev/reference). OpenAPI Specification .json data is also available at [discit-api.fly.dev/spec](https://discit-api.fly.dev/spec).
 
